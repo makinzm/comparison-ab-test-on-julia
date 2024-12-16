@@ -1,5 +1,20 @@
 # Comparison AB test on Julia
 
+# Set up Package
+
+Reference: [Pkg · The Julia Language](https://docs.julialang.org/en/v1/stdlib/Pkg/)
+
+```
+julia
+
+# Push `]` to install package
+
+add HypothesisTests Turing Distributions CSV DataFrames
+
+# Push `backspace` to exit package mode
+
+exit()
+```
 
 # Set up Julia
 
