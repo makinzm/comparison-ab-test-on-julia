@@ -1,5 +1,9 @@
 # Comparison AB test on Julia
 
+```
+julia main.jl
+```
+
 # Set up Package
 
 Reference: [Pkg · The Julia Language](https://docs.julialang.org/en/v1/stdlib/Pkg/)
