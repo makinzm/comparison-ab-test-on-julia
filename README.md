@@ -9,7 +9,7 @@ julia
 
 # Push `]` to install package
 
-add HypothesisTests Turing Distributions CSV DataFrames
+add HypothesisTests Turing Distributions CSV DataFrames MCMCChains
 
 # Push `backspace` to exit package mode
 
