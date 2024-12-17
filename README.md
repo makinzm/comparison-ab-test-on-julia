@@ -1,5 +1,11 @@
 # Comparison AB test on Julia
 
+p-value is 0.48, but the Bayesian posterior difference which A > B is 0.78.
+
+So, in some cases, the Bayesian AB test is more reliable than the frequentist AB test.
+
+![Comparison based on Bayesian AB test](./results/posterior_diff.png)
+
 ```
 julia main.jl
 ```
@@ -13,7 +19,7 @@ julia
 
 # Push `]` to install package
 
-add HypothesisTests Turing Distributions CSV DataFrames MCMCChains
+add HypothesisTests Turing Distributions CSV DataFrames MCMCChains Plots StatsPlots
 
 # Push `backspace` to exit package mode
 

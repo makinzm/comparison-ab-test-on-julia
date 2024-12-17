@@ -5,6 +5,7 @@ using Distributions     # 確率分布(Beta, Binomialなど)を定義するた�
 using Random            # ランダムサンプリングのためのユーティリティ
 using MCMCChains        # MCMCサンプリングの結果を解析するためのパッケージ
 using DataFrames        # データフレーム形式でデータを操作するためのパッケージ
+using StatsPlots        # データの可視化のためのパッケージ
 
 struct ABTestData
     nA::Int         # グループAの表示回数
@@ -46,9 +47,20 @@ function bayesian_test(data::ABTestData; nsamples::Int=2000, nburn::Int=500) :: 
     pB_samples = df[!, :pB]  # pB のサンプル
 
     # pA > pB となる確率を計算
-    p_greater = mean(pA_samples .> pB_samples)
+    comparison = pA_samples .> pB_samples
+    p_greater = mean(comparison)
 
-    # 結果を辞書形式で返す
+    # x軸の範囲を設定 (pA_samples と pB_samples の最小値・最大値から)
+    x_min = min(minimum(pA_samples), minimum(pB_samples))
+    x_max = max(maximum(pA_samples), maximum(pB_samples))
+
+    # pA と pB の事後分布をプロット
+    samples = [pA_samples pB_samples]
+    labels = ["pA" "pB"]
+    histogram(samples, label=labels, bins=20, alpha=0.6, xlim=(x_min, x_max),
+              xlabel="Success rate", ylabel="Frequency", title="Posterior distribution of success rates")
+    savefig("results/posterior_diff.png")
+
     return Dict(
         :posterior_samples => df,           # 事後サンプルの DataFrame
         :p_greater => p_greater,            # pA > pB の確率
