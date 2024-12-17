@@ -24,7 +24,7 @@ end
 function bayesian_test(data::ABTestData; nsamples::Int=2000, nburn::Int=500) :: Dict{Symbol, Any}
     # ベイズモデルの定義
     @model function ab_model(nA::Int, successA::Int, nB::Int, successB::Int)
-        pA ~ Beta(1,1)  # グループAの成功率の事前分布
+        pA ~ Beta(0.1, 100)  # グループAの成功率の事前分布
         pB ~ Beta(1,1)  # グループBの成功率の事前分布
         successA ~ Binomial(nA, pA)  # グループAの観測データ
         successB ~ Binomial(nB, pB)  # グループBの観測データ
