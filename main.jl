@@ -26,7 +26,7 @@ open(log_file, "w") do io  # ログファイルを開く
     Random.seed!(1234)
 
     # テストデータ
-    data = FrequentistABTest.ABTestData(1000, 120, 1000, 110)
+    data = FrequentistABTest.ABTestData(10, 2, 1000, 110)
 
     # 頻度論的アプローチ
     stat, pval = FrequentistABTest.frequentist_test(data, :one)
