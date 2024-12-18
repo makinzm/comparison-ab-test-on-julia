@@ -1,4 +1,4 @@
-Frequentist: statistic = 0.7009135352073711, p-value = 0.48335697697635815
+Frequentist: statistic = 0.7009135352073711, p-value = 0.24167848848817908
 Bayesian: p(A>B) = 0.7765
 mean pA = 0.12081432091495387, mean pB = 0.11072981386999385
 Results saved to results/bayesian_results.csv
