@@ -29,7 +29,7 @@ open(log_file, "w") do io  # ログファイルを開く
     data = FrequentistABTest.ABTestData(100, 12, 1000, 110)
 
     # 頻度論的アプローチ
-    stat, pval = FrequentistABTest.frequentist_test(data)
+    stat, pval = FrequentistABTest.frequentist_test(data, :one)
     log_and_print("Frequentist: statistic = $stat, p-value = $pval")
 
     # ベイズ的アプローチ
